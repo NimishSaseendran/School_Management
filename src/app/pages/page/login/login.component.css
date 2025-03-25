@@ -1,0 +1,36 @@
+.login-layout {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-content {
+    width: 40%;
+    max-width: 500px;
+    margin: auto;
+    transition: width 0.3s ease-in-out;
+}
+
+.form-floating label {
+    color: black;
+}
+
+@media (max-width: 992px) {
+    .login-content {
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-content {
+        width: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-content {
+        width: 100%;
+    }
+}

@@ -1,0 +1,23 @@
+<section>
+    <div class="login-layout p-3">
+        <div class="border rounded-3 p-3 login-content">
+            <h2 class="text-primary mb-3">Login</h2>
+            <form [formGroup]="loginForm" class="mb-3">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                        formControlName="email">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                        formControlName="password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+            </form>
+            <div class="d-flex align-items-center justify-content-between">
+                <button class="btn btn-theme" (click)="fnLogin()">Login</button>
+                <a href="">Forget Password?</a>
+            </div>
+        </div>
+    </div>
+</section>

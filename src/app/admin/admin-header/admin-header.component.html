@@ -1,0 +1,35 @@
+<section>
+    <div class="p-4 shadow">
+        <div class="container d-flex align-items-center justify-content-between">
+            <h3 class="m-0">School</h3>
+            <div class="cursor-pointer">
+                <div class="cursor-pointer" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                    aria-controls="offcanvasExample">
+                    <i class="fa-solid fa-bars fa-xl"></i>
+                </div>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
+                    aria-labelledby="offcanvasExampleLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasExampleLabel">School</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <table class="table table-hover" id="customTable">
+                            <tbody>
+                                <tr *ngFor="let item of arrSideList">
+                                    <td class="text-center"><i [class]="item.icon"></i></td>
+                                    <td data-bs-toggle="offcanvas" (click)="fnSelectModule(item?.strLink)">
+                                        <a [href]="item?.strLink">{{ item.strModuleName }}</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

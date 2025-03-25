@@ -1,0 +1,114 @@
+<div class="modal-header">
+    <div class="d-flex justify-content-between w-100 align-items-center">
+        <h5 class="m-0">Add Student</h5>
+        <div (click)="fnDismissModal()" class="pointer">
+            <i class="fa-solid fa-xmark fa-xl"></i>
+        </div>
+    </div>
+</div>
+<div class="modal-body">
+    <form [formGroup]="studentForm">
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="floatingName" placeholder="John Doe"
+                formControlName="strStudentName" required
+                [ngClass]="{'border-danger': studentForm.controls['strStudentName'].invalid && studentForm.controls['strStudentName'].touched}">
+            <label for="floatingName">Name <span class="text-danger"> *</span></label>
+            <div *ngIf="studentForm.controls['strStudentName'].invalid && studentForm.controls['strStudentName'].touched"
+                class="text-danger small">
+                Name is required.
+            </div>
+        </div>
+
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="floatingId" placeholder="Student ID"
+                formControlName="strStudentId" required
+                [ngClass]="{'border-danger': studentForm.controls['strStudentId'].invalid && studentForm.controls['strStudentId'].touched}">
+            <label for="floatingId">ID <span class="text-danger"> *</span></label>
+            <div *ngIf="studentForm.controls['strStudentId'].invalid && studentForm.controls['strStudentId'].touched"
+                class="text-danger">
+                Student ID is required.
+            </div>
+        </div>
+
+        <div class="form-floating mb-2">
+            <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com"
+                formControlName="strStudentEmail" required
+                [ngClass]="{'border-danger': studentForm.controls['strStudentEmail'].invalid && studentForm.controls['strStudentEmail'].touched}">
+            <label for="floatingEmail">Email <span class="text-danger"> *</span></label>
+            <div *ngIf="studentForm.controls['strStudentEmail'].invalid && studentForm.controls['strStudentEmail'].touched"
+                class="text-danger">
+                Please enter a valid email.
+            </div>
+        </div>
+
+        <div class="form-floating mb-2">
+            <input type="tel" class="form-control" id="floatingPhone" placeholder="1234567890"
+                formControlName="strStudentPhone" pattern="^[0-9]{10}$" required
+                [ngClass]="{'border-danger': studentForm.controls['strStudentPhone'].invalid && studentForm.controls['strStudentPhone'].touched}">
+            <label for="floatingPhone">Phone <span class="text-danger"> *</span></label>
+            <div *ngIf="studentForm.controls['strStudentPhone'].invalid && studentForm.controls['strStudentPhone'].touched"
+                class="text-danger">
+                Enter a valid 10-digit phone number.
+            </div>
+        </div>
+
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="floatingCourse" placeholder="Course Name"
+                formControlName="strStudentCourse" required
+                [ngClass]="{'border-danger': studentForm.controls['strStudentCourse'].invalid && studentForm.controls['strStudentCourse'].touched}">
+            <label for="floatingCourse">Course <span class="text-danger"> *</span></label>
+            <div *ngIf="studentForm.controls['strStudentCourse'].invalid && studentForm.controls['strStudentCourse'].touched"
+                class="text-danger">
+                Course name is required.
+            </div>
+        </div>
+
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="floatingDepartment" placeholder="Department Name"
+                formControlName="strStudentDepartment" required
+                [ngClass]="{'border-danger': studentForm.controls['strStudentDepartment'].invalid && studentForm.controls['strStudentDepartment'].touched}">
+            <label for="floatingDepartment">Department <span class="text-danger"> *</span></label>
+            <div *ngIf="studentForm.controls['strStudentDepartment'].invalid && studentForm.controls['strStudentDepartment'].touched"
+                class="text-danger">
+                Department is required.
+            </div>
+        </div>
+
+        <div class="form-floating mb-2">
+            <input type="number" class="form-control" id="floatingYear" placeholder="Year" formControlName="intYear"
+                min="1" max="5" required
+                [ngClass]="{'border-danger': studentForm.controls['intYear'].invalid && studentForm.controls['intYear'].touched}">
+            <label for="floatingYear">Year <span class="text-danger"> *</span></label>
+            <div *ngIf="studentForm.controls['intYear'].invalid && studentForm.controls['intYear'].touched"
+                class="text-danger">
+                Year must be between 1 and 5.
+            </div>
+        </div>
+
+        <div class="form-floating mb-2">
+            <input type="number" class="form-control" id="floatingSemester" placeholder="Semester"
+                formControlName="intSemester" min="1" max="8" required
+                [ngClass]="{'border-danger': studentForm.controls['intSemester'].invalid && studentForm.controls['intSemester'].touched}">
+            <label for="floatingSemester">Semester <span class="text-danger"> *</span></label>
+            <div *ngIf="studentForm.controls['intSemester'].invalid && studentForm.controls['intSemester'].touched"
+                class="text-danger">
+                Semester must be between 1 and 8.
+            </div>
+        </div>
+
+        <div class="form-floating mb-2">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                formControlName="strStudentPassword" minlength="6" required
+                [ngClass]="{'border-danger': studentForm.controls['strStudentPassword'].invalid && studentForm.controls['strStudentPassword'].touched}">
+            <label for="floatingPassword">Password <span class="text-danger"> *</span></label>
+            <div *ngIf="studentForm.controls['strStudentPassword'].invalid && studentForm.controls['strStudentPassword'].touched"
+                class="text-danger">
+                Password must be at least 6 characters.
+            </div>
+        </div>
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-outline-dark" (click)="fnOnSubmit()">Submit</button>
+</div>

@@ -1,0 +1,83 @@
+<section class="container">
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb text-white">
+                <li class="breadcrumb-item"><a href="admin/admin-profile" class="text-white">Home</a></li>
+                <!-- <li class="breadcrumb-item"><a href="admin/admin-profile" class="text-white">Students</a></li> -->
+                <li class="breadcrumb-item active text-white" aria-current="page">Students</li>
+            </ol>
+        </nav>
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h3 class="fw-semibold">Students</h3>
+            <button class="btn btn-custom" (click)="onModalOpen()">
+                <i class="fa-solid fa-plus"></i>
+                Add Student
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="card p-4">
+            <div class="table-responsive" style="min-height: 50vh;">
+                <table class="table table-dark table-striped table-hover" *ngIf="!isLoading && arrStudents.length > 0">
+                    <thead>
+                        <tr>
+                            <td class="ps-3">Sl No</td>
+                            <td>ID</td>
+                            <td>Name</td>
+                            <td>Email</td>
+                            <td>Phone</td>
+                            <td>Department</td>
+                            <td>Course</td>
+                            <td>Year</td>
+                            <td>Semester</td>
+                            <td>CGPA</td>
+                            <td>Attendance</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngIf="arrStudents?.length > 0; else noData">
+                            <tr *ngFor="let student of arrStudents; let i = index">
+                                <td class="ps-3 align-middle">{{ i + 1 }}</td>
+                                <td class="align-middle">{{ student?.strStudentId }}</td>
+                                <td class="align-middle">{{ student?.strName }}</td>
+                                <td class="align-middle">{{ student?.strEmail }}</td>
+                                <td class="align-middle">{{ student?.strPhone }}</td>
+                                <td class="align-middle">{{ student?.strDepartment }}</td>
+                                <td class="align-middle">{{ student?.strCourse }}</td>
+                                <td class="align-middle">{{ student?.intYear }}</td>
+                                <td class="align-middle">{{ student?.intSemester }}</td>
+                                <td class="align-middle">{{ student?.dblCGPA }}</td>
+                                <td class="align-middle">{{ student?.dblAttendance }}</td>
+                                <td class="position-relative align-middle">
+                                    <div class="dropdown">
+                                        <i class="fa-solid fa-ellipsis-vertical pointer py-2 px-3"
+                                            data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="#">Edit</a></li>
+                                            <li><a class="dropdown-item text-danger"
+                                                    (click)="fnDeleteStudent(student?.pkStudentId)">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+                <div class=" d-flex align-items-center justify-content-center" style="height: 50vh;" *ngIf="isLoading">
+                    <div *ngIf="isLoading" class="loader">
+                    </div>
+                </div>
+                <ng-template #noData>
+                    <tr *ngIf="arrStudents?.length == 0 && !isLoading">
+                        <td colspan="12" class="text-center align-middle py-3" style="height: 50vh; opacity: 0.5;">
+                            No students data found.
+                        </td>
+                    </tr>
+                </ng-template>
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,57 @@
+.offcanvas {
+    background-color: #d6efff;
+}
+
+.item-icon {
+    width: 30px;
+}
+
+.list-unstyled li {
+    font-size: 16px;
+}
+
+#customTable {
+    background-color: #d6efff !important;
+    /* Ensures background applies */
+    border-radius: 8px;
+    width: 100%;
+}
+
+#customTable tbody tr {
+    background-color: #d6efff !important;
+    /* Light blue row background */
+    transition: background 0.3s ease-in-out;
+}
+
+#customTable tbody tr:hover {
+    background-color: #bde0ff !important;
+    /* Slightly darker blue on hover */
+}
+
+#customTable td {
+    padding: 12px;
+    font-size: 1rem;
+    color: #333;
+    /* Dark text for better readability */
+}
+
+#customTable td i {
+    font-size: 1.3rem;
+    color: #007bff;
+    /* Bootstrap primary color */
+}
+
+:host ::ng-deep .offcanvas-body table.table tbody tr,
+:host ::ng-deep .offcanvas-body table.table tbody tr td {
+    background-color: #d6efff !important;
+    cursor: pointer;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+a {
+    color: #0e2b5d !important;
+    font-weight: 600;
+}
